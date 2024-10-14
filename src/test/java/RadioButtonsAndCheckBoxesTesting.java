@@ -50,8 +50,5 @@ public class RadioButtonsAndCheckBoxesTesting {
         if (!isChecked){
             driver.findElement(By.xpath("//label[@for='j_idt87:age:0']")).click();
         }
-
-
-
     }
 }
