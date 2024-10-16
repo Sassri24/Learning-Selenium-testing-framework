@@ -21,23 +21,25 @@ public class ActionMouseOperationTesting {
 
         // 1. Move to an element operation
 
-        driver.get("https://www.leafground.com/drag.xhtml");
-        Actions actions= new Actions(driver);
-        actions.moveToElement(driver.findElement(By.id("menuform:j_idt37"))).perform();
-        Thread.sleep(4000);
-        actions.moveToElement(driver.findElement(By.id("menuform:j_idt38"))).perform();
-        Thread.sleep(4000);
-        actions.moveToElement(driver.findElement(By.id("menuform:j_idt39"))).perform();
-        Thread.sleep(4000);
-        actions.moveToElement(driver.findElement(By.id("menuform:j_idt40"))).perform();
-        Thread.sleep(4000);
+          driver.get("https://www.leafground.com/drag.xhtml");
+          Actions actions= new Actions(driver);
+
+
+//        actions.moveToElement(driver.findElement(By.id("menuform:j_idt37"))).perform();
+//        Thread.sleep(4000);
+//        actions.moveToElement(driver.findElement(By.id("menuform:j_idt38"))).perform();
+//        Thread.sleep(4000);
+//        actions.moveToElement(driver.findElement(By.id("menuform:j_idt39"))).perform();
+//        Thread.sleep(4000);
+//        actions.moveToElement(driver.findElement(By.id("menuform:j_idt40"))).perform();
+//        Thread.sleep(4000);
 
         //second way
 
-//        actions.moveToElement(driver.findElement(By.id("menuform:j_idt37")))
-//                .moveToElement(driver.findElement(By.id("menuform:j_idt38")))
-//                .moveToElement(driver.findElement(By.id("menuform:j_idt39")))
-//                .moveToElement(driver.findElement(By.id("menuform:j_idt40"))).perform();
+        actions.moveToElement(driver.findElement(By.id("menuform:j_idt37")))
+                .moveToElement(driver.findElement(By.id("menuform:j_idt38")))
+                .moveToElement(driver.findElement(By.id("menuform:j_idt39")))
+                .moveToElement(driver.findElement(By.id("menuform:j_idt40"))).perform();
 
         // 2. Drag and drop operation
 
@@ -45,7 +47,16 @@ public class ActionMouseOperationTesting {
         WebElement dragHere = driver.findElement(By.id("form:drop"));
 
         //actions.clickAndHold(clickedItem).moveToElement(dragHere).release(dragHere).perform();  //first way
-        actions.dragAndDrop(clickedItem,dragHere).perform();                       // second way
+        actions.dragAndDrop(clickedItem,dragHere).perform();                                      // second way
+
+
+        //Slider operation
+
+        WebElement slider= driver.findElement(By.xpath("//*[@id='form:j_idt125']/span[1]"));
+        System.out.println("slider location before moving: "+ slider.getLocation());
+
+        actions.dragAndDropBy(slider,50,0).perform();
+        System.out.println("slider location after moving: "+ slider.getLocation());
 
 
     }
