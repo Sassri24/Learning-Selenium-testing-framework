@@ -1,8 +1,10 @@
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.SourceType;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -50,13 +52,28 @@ public class ActionMouseOperationTesting {
         actions.dragAndDrop(clickedItem,dragHere).perform();                                      // second way
 
 
-        //Slider operation
+        // 3. Slider operation
 
         WebElement slider= driver.findElement(By.xpath("//*[@id='form:j_idt125']/span[1]"));
         System.out.println("slider location before moving: "+ slider.getLocation());
 
         actions.dragAndDropBy(slider,50,0).perform();
         System.out.println("slider location after moving: "+ slider.getLocation());
+
+    }
+
+    @Test
+    public void rightClickAction(){
+
+        driver.get("https://swisnl.github.io/jQuery-contextMenu/demo.html");
+        WebElement rightClick =driver.findElement(By.xpath("//span[@class='context-menu-one btn btn-neutral']"));
+
+        Actions actions1= new Actions(driver);
+        actions1.contextClick(rightClick).perform();
+        driver.findElement(By.xpath("//span[normalize-space()='Edit']")).click();
+        Alert alertPop= driver.switchTo().alert();
+        System.out.println("Alert shows the text as: "+ alertPop.getText());
+        alertPop.accept();
 
 
     }
