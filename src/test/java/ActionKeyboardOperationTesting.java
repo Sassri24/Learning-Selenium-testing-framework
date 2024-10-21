@@ -14,7 +14,6 @@ public class ActionKeyboardOperationTesting {
         driver.manage().window().maximize();
         driver.get("");
 
-
     }
 
     @Test
