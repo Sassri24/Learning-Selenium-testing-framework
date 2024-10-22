@@ -21,7 +21,7 @@ public class ActionKeyboardOperationTesting {
     }
 
     @Test
-    public void KeyBoardExample1(){
+    public void KeyBoardExample1() throws InterruptedException {
         driver.get("https://www.google.com/");
          WebElement googleSearchTextBox= driver.findElement(By.name("q"));
          googleSearchTextBox.sendKeys("apple");
@@ -31,6 +31,18 @@ public class ActionKeyboardOperationTesting {
         Actions actions = new Actions(driver);
         Action storingBuildOperation =actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).build();
         storingBuildOperation.perform();
+
+        Thread.sleep(2000);
+
+        actions.keyDown(Keys.SHIFT)
+                .sendKeys("writing capital letters")
+                .keyUp(Keys.SHIFT)
+                .keyDown(Keys.CONTROL)
+                .sendKeys("a")
+                .keyUp(Keys.CONTROL)
+                .keyDown(Keys.CONTROL)
+                .sendKeys("x")
+                .build().perform();
 
     }
 }
