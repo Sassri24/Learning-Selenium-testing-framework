@@ -36,4 +36,9 @@ public class FilesDownloadUploadTesting {
         }
 
     }
+
+    @Test
+    public void fileUploadTest(){
+
+    }
 }
