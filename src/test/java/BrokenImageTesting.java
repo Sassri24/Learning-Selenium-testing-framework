@@ -12,5 +12,6 @@ public class BrokenImageTesting {
         driver.manage().window().maximize();
         driver.get("");
 
+
     }
 }
