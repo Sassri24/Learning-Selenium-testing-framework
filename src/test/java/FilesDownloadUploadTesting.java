@@ -73,6 +73,5 @@ public class FilesDownloadUploadTesting {
         WebElement uploadUsingSendKeys = driver.findElement(By.id("j_idt88:j_idt89_input"));
         uploadUsingSendKeys.sendKeys(data);
 
-
     }
 }
