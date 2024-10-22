@@ -31,6 +31,7 @@ public class FilesDownloadUploadTesting {
         for(File findFile:totalFiles){
             if(findFile.getName().equals("TestLeaf Logo.png")){
                 System.out.println("File is downloaded");
+                break;
             }
         }
 
