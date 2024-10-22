@@ -25,6 +25,7 @@ public class FilesDownloadUploadTesting {
 
     @Test
     public void fileDownloadTest() throws InterruptedException {
+
         driver.get("https://www.leafground.com/file.xhtml");
         WebElement downloadButton = driver.findElement(By.id("j_idt93:j_idt95"));
         downloadButton.click();
@@ -45,6 +46,7 @@ public class FilesDownloadUploadTesting {
         driver.get("https://www.leafground.com/file.xhtml");
 
         //1st way (using robot class)
+
         WebElement uploadButton = driver.findElement(By.id("j_idt88:j_idt89"));
         uploadButton.click();
 
@@ -66,6 +68,11 @@ public class FilesDownloadUploadTesting {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 
-        //2nd way (using send keys - applicable only element type is file)
+        //2nd way (using send keys - applicable only for element type is file(find it through the inspect of website)-input type="file")
+
+        WebElement uploadUsingSendKeys = driver.findElement(By.id("j_idt88:j_idt89_input"));
+        uploadUsingSendKeys.sendKeys(data);
+
+
     }
 }
