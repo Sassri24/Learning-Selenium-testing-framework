@@ -5,6 +5,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.File;
+
 public class FilesDownloadUploadTesting {
 
     WebDriver driver;
@@ -23,6 +25,14 @@ public class FilesDownloadUploadTesting {
         WebElement downloadButton = driver.findElement(By.id("j_idt93:j_idt95"));
         downloadButton.click();
         Thread.sleep(4000);
+
+        File file= new File("C:\\Users\\Chamod Ganegoda\\Downloads");
+        File[] totalFiles = file.listFiles();
+        for(File findFile:totalFiles){
+            if(findFile.getName().equals("TestLeaf Logo.png")){
+                System.out.println("File is downloaded");
+            }
+        }
 
     }
 }
