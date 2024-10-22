@@ -51,4 +51,10 @@ public class ActionKeyboardOperationTesting {
                 .build().perform();
 
     }
+
+    @Test
+    public void KeyBoardExample2(){
+        driver.get("https://www.leafground.com/list.xhtml");
+
+    }
 }
