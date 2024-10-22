@@ -8,6 +8,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class ActionKeyboardOperationTesting {
 
     WebDriver driver;
@@ -55,6 +57,16 @@ public class ActionKeyboardOperationTesting {
     @Test
     public void KeyBoardExample2(){
         driver.get("https://www.leafground.com/list.xhtml");
+        List<WebElement> selectable =  driver.findElements(By.xpath("//ul[@aria-label='From']/li"));
+        int listSize=selectable.size();
+        System.out.println("list size: " +listSize);
+
+        Actions actions=new Actions(driver);
+        actions.keyDown(Keys.CONTROL)
+                .click(selectable.get(0))
+                .click(selectable.get(1))
+                .click(selectable.get(2))
+                .build().perform();
 
     }
 }
