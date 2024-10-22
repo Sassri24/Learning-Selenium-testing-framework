@@ -5,6 +5,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.File;
 
 public class FilesDownloadUploadTesting {
@@ -17,11 +20,12 @@ public class FilesDownloadUploadTesting {
 
         driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://www.leafground.com/file.xhtml");
+
     }
 
     @Test
     public void fileDownloadTest() throws InterruptedException {
+        driver.get("https://www.leafground.com/file.xhtml");
         WebElement downloadButton = driver.findElement(By.id("j_idt93:j_idt95"));
         downloadButton.click();
         Thread.sleep(4000);
@@ -34,11 +38,34 @@ public class FilesDownloadUploadTesting {
                 break;
             }
         }
-
     }
 
     @Test
-    public void fileUploadTest(){
+    public void fileUploadTest() throws AWTException {
+        driver.get("https://www.leafground.com/file.xhtml");
 
+        //1st way (using robot class)
+        WebElement uploadButton = driver.findElement(By.id("j_idt88:j_idt89"));
+        uploadButton.click();
+
+        //windows control begin here
+        String data= "C:\\Users\\Chamod Ganegoda\\Downloads\\TestLeaf Logo.png";
+        StringSelection selection= new StringSelection(data);
+
+        //copying path to clipboard
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection,null);
+
+        Robot robot= new Robot();
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+
+        //2nd way (using send keys - applicable only element type is file)
     }
 }
