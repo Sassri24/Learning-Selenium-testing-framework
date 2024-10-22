@@ -22,7 +22,6 @@ public class FilesDownloadUploadTesting {
     public void fileDownloadTest() throws InterruptedException {
         WebElement downloadButton = driver.findElement(By.id("j_idt93:j_idt95"));
         downloadButton.click();
-
         Thread.sleep(4000);
 
     }
