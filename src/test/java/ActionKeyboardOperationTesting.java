@@ -44,5 +44,11 @@ public class ActionKeyboardOperationTesting {
                 .sendKeys("x")
                 .build().perform();
 
+        //to write capital in textbox
+
+        actions.keyDown(googleSearchTextBox, Keys.SHIFT)
+                .sendKeys("sassri chamod ganegoda")
+                .build().perform();
+
     }
 }
