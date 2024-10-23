@@ -6,7 +6,7 @@ public class BrokenImageTesting {
 
     WebDriver driver;
 
-    //before method
+    //open browser and go to website using before method
 
     @BeforeMethod
     public void openWebSite(){
