@@ -7,12 +7,10 @@ public class BrokenImageTesting {
     WebDriver driver;
 
     @BeforeMethod
-    public void openBrowser(){
+    public void openWebSite(){
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("");
-
-
 
     }
 }
