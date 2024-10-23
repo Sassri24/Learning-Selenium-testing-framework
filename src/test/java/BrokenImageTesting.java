@@ -7,6 +7,7 @@ public class BrokenImageTesting {
     WebDriver driver;
 
     //before method
+
     @BeforeMethod
     public void openWebSite(){
         driver=new ChromeDriver();
