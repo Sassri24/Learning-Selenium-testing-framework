@@ -15,4 +15,6 @@ public class BrokenImageTesting {
         driver.get("");
 
     }
+
+    //Broken Image example 01
 }
