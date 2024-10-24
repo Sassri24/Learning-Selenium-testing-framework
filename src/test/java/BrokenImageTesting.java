@@ -70,7 +70,11 @@ public class BrokenImageTesting {
 
         driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='demo-frame']")));
 
-        driver.findElement(By.xpath("//img[2]"));
+        WebElement datePicker = driver.findElement(By.xpath("//input[@id='datepicker']"));
+
+        //to use send keys element input type must be text (input type="text")
+
+        datePicker.sendKeys("24/12/2024");
 
     }
 }
