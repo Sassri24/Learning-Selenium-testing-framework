@@ -11,27 +11,32 @@ public class BrokenImageTesting {
 
     WebDriver driver;
 
-    //open browser and go to website using before method
+    //Open Chrome browser
 
     @BeforeMethod
     public void openWebSite(){
         driver=new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get("https://the-internet.herokuapp.com/broken_images");
     }
 
     //broken Image example 01
 
     @Test
     public void brokenImageExample(){
+
+        driver.get("https://the-internet.herokuapp.com/broken_images");
         List<WebElement> brokenImages= driver.findElements(By.xpath("//div[@class='example']/img"));
 
         //naturalWidth is equal to 0 in default (In the broken Image)...
 
+        int i = 1;
         for(WebElement image : brokenImages){
-            if(image.getAttribute("naturalWidth").equals(0)){
-                System.out.println();
+            if(image.getAttribute("naturalWidth").equals("0")){
+                System.out.println("image " + i +" is broken");
+            }else{
+                System.out.println("image " + i +" not broken");
             }
+            i++;
         }
     }
 }
