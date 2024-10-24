@@ -26,6 +26,8 @@ public class BrokenImageTesting {
     public void brokenImageExample(){
         List<WebElement> brokenImages= driver.findElements(By.xpath("//div[@class='example']/img"));
 
+        //naturalWidth is equal to 0 in default (In the broken Image)
+
         for(WebElement image : brokenImages){
             if(image.getAttribute("naturalWidth").equals(0)){
                 System.out.println();
