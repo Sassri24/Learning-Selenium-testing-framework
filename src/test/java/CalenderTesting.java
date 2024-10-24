@@ -35,7 +35,32 @@ public class CalenderTesting {
 
         datePicker.sendKeys("24/12/2024");
 
+        //..................................................................................................................//
+
         //method 02
 
+        datePicker.click();
+        forwardCalender ("December","2025","24");
+
+    }
+
+    public void forwardCalender(String Month,String Year,String Date){
+        while(true){
+            String month = driver.findElement(By.xpath("//span[@class='ui-datepicker-month']")).getText();
+            String year = driver.findElement(By.xpath("//span[@class='ui-datepicker-year']")).getText();
+            if(year.equals(Year) && month.equals(Month)){
+                break;
+            }else {
+                driver.findElement(By.xpath("//a[@title='Next']")).click();
+            }
+        }
+        List<WebElement> allDates = driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']/tbody/tr/td/a"));
+
+        for(WebElement date : allDates ){
+            if (date.getText().equals(Date)){
+                date.click();
+                break;
+            }
+        }
     }
 }
