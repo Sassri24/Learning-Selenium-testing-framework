@@ -13,8 +13,7 @@ public class BrokenImageTesting {
         driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("");
-
     }
 
-    //Broken Image example 01
+    //broken Image example 01
 }
