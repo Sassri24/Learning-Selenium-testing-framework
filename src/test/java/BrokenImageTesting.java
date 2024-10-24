@@ -22,7 +22,7 @@ public class BrokenImageTesting {
     //broken Image example 01
 
     @Test
-    public void brokenImageExample(){
+    public void brokenImageExample01(){
 
         driver.get("https://the-internet.herokuapp.com/broken_images");
         List<WebElement> brokenImages= driver.findElements(By.xpath("//div[@class='example']/img"));
@@ -37,6 +37,25 @@ public class BrokenImageTesting {
                 System.out.println("image " + i +" not broken");
             }
             i++;
+        }
+    }
+
+    //broken Image example 01
+
+    @Test
+    public void brokenImageExample02(){
+
+        driver.get("https://demoqa.com/broken");
+        List<WebElement> brokenImages= driver.findElements(By.xpath("//img[2]"));
+
+        //naturalWidth is equal to 0 in default (In the broken Image)...
+
+        for(WebElement image : brokenImages){
+            if(image.getAttribute("naturalWidth").equals("0")){
+                System.out.println("image is broken");
+            }else{
+                System.out.println("image not broken");
+            }
         }
     }
 }
