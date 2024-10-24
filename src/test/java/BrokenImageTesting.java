@@ -40,7 +40,7 @@ public class BrokenImageTesting {
         }
     }
 
-    //broken Image example 01
+    //broken Image example 02
 
     @Test
     public void brokenImageExample02(){
@@ -59,22 +59,4 @@ public class BrokenImageTesting {
         }
     }
 
-    //Calender example 01
-
-    @Test
-    public void calenderExample01(){
-
-        driver.get("https://jqueryui.com/datepicker/");
-
-        //method 01
-
-        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='demo-frame']")));
-
-        WebElement datePicker = driver.findElement(By.xpath("//input[@id='datepicker']"));
-
-        //to use send keys element input type must be text (input type="text")
-
-        datePicker.sendKeys("24/12/2024");
-
-    }
 }
