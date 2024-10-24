@@ -58,4 +58,19 @@ public class BrokenImageTesting {
             }
         }
     }
+
+    //Calender example 01
+
+    @Test
+    public void calenderExample01(){
+
+        driver.get("https://jqueryui.com/datepicker/");
+
+        //method 01
+
+        driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='demo-frame']")));
+
+        driver.findElement(By.xpath("//img[2]"));
+
+    }
 }
