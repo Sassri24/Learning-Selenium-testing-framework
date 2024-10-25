@@ -44,6 +44,8 @@ public class CalenderTesting {
 
     }
 
+    //forward date select automation
+
     public void forwardCalender(String Month,String Year,String Date){
         while(true){
             String month = driver.findElement(By.xpath("//span[@class='ui-datepicker-month']")).getText();
@@ -52,6 +54,28 @@ public class CalenderTesting {
                 break;
             }else {
                 driver.findElement(By.xpath("//a[@title='Next']")).click();
+            }
+        }
+        List<WebElement> allDates = driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']/tbody/tr/td/a"));
+
+        for(WebElement date : allDates ){
+            if (date.getText().equals(Date)){
+                date.click();
+                break;
+            }
+        }
+    }
+
+    //backward date select automation
+
+    public void backwardCalender(String Month,String Year,String Date){
+        while(true){
+            String month = driver.findElement(By.xpath("//span[@class='ui-datepicker-month']")).getText();
+            String year = driver.findElement(By.xpath("//span[@class='ui-datepicker-year']")).getText();
+            if(year.equals(Year) && month.equals(Month)){
+                break;
+            }else {
+                driver.findElement(By.xpath("//a[@title='Prev']")).click();
             }
         }
         List<WebElement> allDates = driver.findElements(By.xpath("//table[@class='ui-datepicker-calendar']/tbody/tr/td/a"));
