@@ -44,7 +44,7 @@ public class CalenderTesting {
 
     }
 
-    //forward date select automation
+    //forward date select in calender
 
     public void forwardCalender(String Month,String Year,String Date){
         while(true){
@@ -66,7 +66,7 @@ public class CalenderTesting {
         }
     }
 
-    //backward date select automation
+    //backward date select in calender
 
     public void backwardCalender(String Month,String Year,String Date){
         while(true){
