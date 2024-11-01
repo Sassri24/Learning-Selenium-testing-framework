@@ -40,6 +40,9 @@ public class CalenderTesting {
         //method 02
 
         datePicker.click();
+
+        //forward calender method calling
+
         forwardCalender ("December","2025","24");
         backwardCalender("December","2001","24");
     }
