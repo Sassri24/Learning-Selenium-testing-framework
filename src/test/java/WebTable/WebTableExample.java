@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -21,7 +22,7 @@ public class WebTableExample {
     }
 
     @Test
-    public void tableTesting(){
+    public void tableTesting() throws InterruptedException {
 
         //how many rows in the table
 
@@ -42,12 +43,61 @@ public class WebTableExample {
 
         for(int i=1; i<=tableRowCount; i++){
             for(int j=1; j<tableColumnCount; j++){
-                String data=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td["+j+"]")).getText();
-                System.out.print(data+ " ");
+                String tableData=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td["+j+"]")).getText();
+                System.out.print(tableData+ " ");
             }
             System.out.println();
         }
 
         //print ID and name only
+
+        for(int i=1; i <=tableRowCount; i++){
+            String idData=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td[1]")).getText();
+            String nameData=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td[2]")).getText();
+            System.out.print(idData+" "+nameData);
+            System.out.println();
+        }
+
+        //find the product price which name related to id=3
+
+        for(int i=1; i <=tableRowCount; i++){
+            String productId=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td[1]")).getText();
+
+            if(productId.equals("3")){
+                String selectedProductPrice= driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td[3]")).getText();
+                System.out.println(selectedProductPrice);
+                break;
+            }
+        }
+
+        //select all the checkboxes
+
+        int pageCount=driver.findElements(By.xpath("//ul[@id='pagination']/li")).size();
+        List<WebElement> pages= driver.findElements(By.xpath("//ul[@id='pagination']/li"));
+
+        for(int i=0; i<pageCount; i++){
+            pages.get(i).click();
+            Thread.sleep(1000);
+
+            for(int j=1; j<=tableRowCount; j++){
+                WebElement checkBox=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+j+"]/td[4]/input"));
+                boolean checkBoxCondition= checkBox.isSelected();
+                if(!checkBoxCondition){
+                    checkBox.click();
+                }
+            }
+        }
+
+        //select one checkbox
+
+        int tbRowNumber= 2;
+        WebElement checkBox=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+tbRowNumber+"]/td[4]/input"));
+        checkBox.click();
+
+    }
+
+    @AfterMethod
+    public void closeBrowser(){
+        driver.close();
     }
 }
