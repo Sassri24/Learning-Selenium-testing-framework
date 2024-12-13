@@ -32,5 +32,22 @@ public class WebTableExample {
 
         int tableColumnCount= driver.findElements(By.xpath("//table[@id='productTable']/thead/tr/th")).size();
         System.out.println("table column count: " + tableColumnCount);
+
+        //retrieve the specific row/column data
+
+        String specificData=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr[4]/td[2]")).getText();
+        System.out.println(specificData);
+
+        //retrieve all the data from table
+
+        for(int i=1; i<=tableRowCount; i++){
+            for(int j=1; j<tableColumnCount; j++){
+                String data=driver.findElement(By.xpath("//table[@id='productTable']/tbody/tr["+i+"]/td["+j+"]")).getText();
+                System.out.print(data+ " ");
+            }
+            System.out.println();
+        }
+
+        //print ID and name only
     }
 }
