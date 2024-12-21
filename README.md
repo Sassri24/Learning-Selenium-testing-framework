@@ -9,6 +9,9 @@ Welcome to the **Learning-Selenium-testing-framework** repository! 📚 This rep
 ## 📁 **Repository Structure**
 
 ### 📝 **Java Files:**
+- **OpenGoogleTest.java** 🌐  
+  Basic test setup: navigating to Google and finding elements.
+  
 - **WebTable** 📊  
   Automates handling and extracting data from web tables.
 
@@ -44,12 +47,6 @@ Welcome to the **Learning-Selenium-testing-framework** repository! 📚 This rep
 
 - **MultipleTabsTesting.java** 🗂️  
   Automates opening and switching between multiple browser tabs.
-
-- **NewClass.java** 🆕  
-  Placeholder for new test class additions.
-
-- **OpenGoogleTest.java** 🌐  
-  Basic test setup: navigating to Google and finding elements.
 
 - **RadioButtonsAndCheckBoxesTesting.java** ✅  
   Automates radio button and checkbox interactions.
