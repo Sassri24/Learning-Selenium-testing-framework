@@ -101,25 +101,5 @@ public class WebTableExample {
         driver.close();
     }
 
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
-    //comment
     
 }
