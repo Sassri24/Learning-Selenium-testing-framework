@@ -99,5 +99,8 @@ public class WebTableExample {
     @AfterMethod
     public void closeBrowser(){
         driver.close();
-    }    
+    }
+    
+    //comment
+    //comment
 }
