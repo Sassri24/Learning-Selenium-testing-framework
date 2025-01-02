@@ -100,7 +100,4 @@ public class WebTableExample {
     public void closeBrowser(){
         driver.close();
     }
-    
-    //comment
-    //comment
 }
