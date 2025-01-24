@@ -1,3 +1,2 @@
 public class NewClass {
-  //comment
 }
